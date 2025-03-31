@@ -1,6 +1,17 @@
+
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { Progress } from '@/components/ui/progress';
+import { Badge } from '@/components/ui/badge';
+import { Star, StarHalf } from 'lucide-react';
+
+// Convert percentage to star level representation (max 5 stars)
+const getLevelStars = (level: number) => {
+  // Map percentage to 0-5 scale
+  const normalizedLevel = Math.floor((level / 100) * 5);
+  const hasHalfStar = (level / 100) * 5 - normalizedLevel >= 0.5;
+  
+  return { fullStars: normalizedLevel, hasHalfStar };
+};
 
 const skillCategories = [
   {
@@ -58,6 +69,15 @@ const skillCategories = [
   }
 ];
 
+// Map percentage to expertise level text
+const getExpertiseLevel = (level: number) => {
+  if (level >= 90) return { text: "Expert", color: "bg-green-500/20 text-green-700 dark:bg-green-500/30 dark:text-green-300" };
+  if (level >= 80) return { text: "Advanced", color: "bg-blue-500/20 text-blue-700 dark:bg-blue-500/30 dark:text-blue-300" };
+  if (level >= 70) return { text: "Proficient", color: "bg-purple-500/20 text-purple-700 dark:bg-purple-500/30 dark:text-purple-300" };
+  if (level >= 60) return { text: "Intermediate", color: "bg-yellow-500/20 text-yellow-700 dark:bg-yellow-500/30 dark:text-yellow-300" };
+  return { text: "Beginner", color: "bg-gray-500/20 text-gray-700 dark:bg-gray-500/30 dark:text-gray-300" };
+};
+
 const SkillsSection = () => {
   return (
     <section id="skills" className="py-20 px-6 bg-muted/50">
@@ -75,20 +95,44 @@ const SkillsSection = () => {
             <Card key={index} className="shadow-sm">
               <CardContent className="p-6">
                 <h3 className="text-xl font-bold mb-6">{category.category}</h3>
-                <div className="space-y-6">
-                  {category.skills.map((skill, idx) => (
-                    <div key={idx}>
-                      <div className="flex justify-between mb-2">
-                        <span className="font-medium">{skill.name}</span>
-                        <span className="text-muted-foreground">{skill.level}%</span>
+                <div className="space-y-5">
+                  {category.skills.map((skill, idx) => {
+                    const { fullStars, hasHalfStar } = getLevelStars(skill.level);
+                    const expertiseLevel = getExpertiseLevel(skill.level);
+                    
+                    return (
+                      <div key={idx} className="flex flex-col">
+                        <div className="flex justify-between items-center mb-2">
+                          <span className="font-medium">{skill.name}</span>
+                          <Badge className={`${expertiseLevel.color} border-none`}>
+                            {expertiseLevel.text}
+                          </Badge>
+                        </div>
+                        <div className="flex items-center">
+                          {[...Array(fullStars)].map((_, i) => (
+                            <Star 
+                              key={i} 
+                              size={18} 
+                              className="text-yellow-500 fill-yellow-500 mr-1" 
+                            />
+                          ))}
+                          {hasHalfStar && (
+                            <StarHalf 
+                              size={18} 
+                              className="text-yellow-500 fill-yellow-500 mr-1" 
+                            />
+                          )}
+                          {[...Array(5 - fullStars - (hasHalfStar ? 1 : 0))].map((_, i) => (
+                            <Star 
+                              key={i} 
+                              size={18} 
+                              className="text-gray-300 mr-1" 
+                            />
+                          ))}
+                        </div>
                       </div>
-                      <Progress 
-                        value={skill.level} 
-                        className="h-2" 
-                        indicatorClassName={skill.color}
-                      />
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </CardContent>
             </Card>
