@@ -17,7 +17,7 @@ const HeroSection = () => {
             Software Developer &amp; Cloud Engineer
           </h2>
           <p className="text-lg mb-8 opacity-85 leading-relaxed animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            Specialized in AWS and GCP cloud services, Kubernetes orchestration, 
+            Specialized in AWS and GCP cloud services, Kubernetes orchestration, CI/CD pipelines, 
             and Infrastructure as Code. Building scalable, resilient, and secure cloud architectures.
           </p>
 
