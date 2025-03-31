@@ -6,7 +6,7 @@ import { Link } from 'react-scroll';
 
 const HeroSection = () => {
   return (
-    <section id="hero" className="min-h-screen flex items-center relative bg-hero-gradient">
+    <section id="hero" className="min-h-screen flex items-center relative bg-gradient-to-r from-blue-50 to-indigo-100">
       <div className="absolute inset-0 bg-gradient-radial from-primary/10 via-transparent to-transparent opacity-60"></div>
       <div className="container mx-auto px-6 py-12 md:py-0 relative">
         <div className="max-w-3xl mx-auto text-center md:text-left md:mx-0">
