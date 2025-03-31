@@ -38,7 +38,7 @@ const Navbar = () => {
     },
     { 
       icon: <Linkedin size={20} />, 
-      href: 'https://linkedin.com/in/reddy-akshay-kumar', 
+      href: 'https://www.linkedin.com/in/reddy-akshay-kumar-824722199/', 
       label: 'LinkedIn' 
     },
     { 

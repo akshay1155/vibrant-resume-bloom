@@ -67,7 +67,7 @@ const AboutSection = () => {
                       </a>
                     </Button>
                     <Button asChild variant="outline" size="icon">
-                      <a href="https://linkedin.com/in/reddy-akshay-kumar" target="_blank" rel="noopener noreferrer">
+                      <a href="https://www.linkedin.com/in/reddy-akshay-kumar-824722199/" target="_blank" rel="noopener noreferrer">
                         <Linkedin size={18} />
                       </a>
                     </Button>

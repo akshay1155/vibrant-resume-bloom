@@ -74,7 +74,7 @@ const ContactSection = () => {
                     </Button>
                     <Button asChild variant="outline" className="w-full justify-start">
                       <a 
-                        href="https://linkedin.com/in/reddy-akshay-kumar" 
+                        href="https://www.linkedin.com/in/reddy-akshay-kumar-824722199/" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="flex items-center"
