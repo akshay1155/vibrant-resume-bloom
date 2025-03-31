@@ -14,7 +14,7 @@ const HeroSection = () => {
             Reddy <span className="text-primary">Akshay</span> Kumar
           </h1>
           <h2 className="text-xl md:text-2xl mb-6 opacity-90 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            Software Developer &amp; Cloud Engineer
+            Software Developer &amp; DevOps Engineer
           </h2>
           <p className="text-lg mb-8 opacity-85 leading-relaxed animate-fade-in" style={{ animationDelay: '0.4s' }}>
             Specialized in AWS and GCP cloud services, Kubernetes orchestration, CI/CD pipelines, 
