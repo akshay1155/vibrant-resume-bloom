@@ -15,7 +15,7 @@ const Footer = () => {
             <h3 className="text-lg font-bold">
               <span className="text-primary">Reddy Akshay</span> Kumar
             </h3>
-            <p className="text-muted-foreground text-sm mt-1">Software Developer & Cloud Engineer</p>
+            <p className="text-muted-foreground text-sm mt-1">Software Developer & DevOps Engineer</p>
           </div>
 
           <div className="flex flex-col items-center md:items-end">

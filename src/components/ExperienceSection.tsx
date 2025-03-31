@@ -39,7 +39,7 @@ const ExperienceSection = () => {
           <h2 className="text-3xl font-bold mb-2">Work Experience</h2>
           <div className="w-20 h-1 bg-primary mx-auto rounded-full mb-6"></div>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            My professional journey as a Software Developer and Cloud Engineer
+            My professional journey as a Software Developer and DevOps Engineer
           </p>
         </div>
 
