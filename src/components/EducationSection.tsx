@@ -1,7 +1,9 @@
 
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
-import { GraduationCap, Calendar } from 'lucide-react';
+import { GraduationCap, Calendar, ExternalLink } from 'lucide-react';
+import { Badge } from '@/components/ui/badge';
+import { Button } from '@/components/ui/button';
 
 const educationItems = [
   {
@@ -28,11 +30,26 @@ const educationItems = [
 ];
 
 const certifications = [
-  'Google Cloud Certified Professional Cloud DevOps Engineer',
-  'AWS Certified Developer - Associate',
-  'HashiCorp Certified: Terraform Associate (003)',
-  'InfyTQ Certification - Infosys Certified Software Programmer',
-  'NPTEL Certification in Programming in Java'
+  {
+    name: 'Google Cloud Certified Professional Cloud DevOps Engineer',
+    credlyLink: 'https://www.credly.com/badges/f6620794-92b0-4394-a96d-2025c49d6004'
+  },
+  {
+    name: 'AWS Certified Developer - Associate',
+    credlyLink: 'https://www.credly.com/badges/2a028b33-05e5-4e3d-bc79-4a313c2eb4d3'
+  },
+  {
+    name: 'HashiCorp Certified: Terraform Associate (003)',
+    credlyLink: 'https://www.credly.com/badges/7874d337-7d53-4146-98eb-f05ac92b37d9'
+  },
+  {
+    name: 'InfyTQ Certification - Infosys Certified Software Programmer',
+    credlyLink: null
+  },
+  {
+    name: 'NPTEL Certification in Programming in Java',
+    credlyLink: null
+  }
 ];
 
 const EducationSection = () => {
@@ -86,7 +103,21 @@ const EducationSection = () => {
                       <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check text-primary mr-2 mt-1">
                         <polyline points="20 6 9 17 4 12" />
                       </svg>
-                      <span>{cert}</span>
+                      <div className="flex flex-col">
+                        <span>{cert.name}</span>
+                        {cert.credlyLink && (
+                          <Button variant="link" className="p-0 h-6 justify-start" asChild>
+                            <a 
+                              href={cert.credlyLink} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="text-primary text-sm flex items-center mt-1"
+                            >
+                              View credential <ExternalLink size={14} className="ml-1" />
+                            </a>
+                          </Button>
+                        )}
+                      </div>
                     </li>
                   ))}
                 </ul>
