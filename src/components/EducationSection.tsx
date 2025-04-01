@@ -32,28 +32,23 @@ const educationItems = [
 const certifications = [
   {
     name: 'Google Cloud Certified Professional Cloud DevOps Engineer',
-    credlyLink: 'https://www.credly.com/badges/f6620794-92b0-4394-a96d-2025c49d6004',
-    badgeImage: '/lovable-uploads/fccb68c9-c465-4d07-ad79-9c3fdf0ce3a6.png'
+    credlyLink: 'https://www.credly.com/badges/f6620794-92b0-4394-a96d-2025c49d6004'
   },
   {
     name: 'AWS Certified Developer - Associate',
-    credlyLink: 'https://www.credly.com/badges/2a028b33-05e5-4e3d-bc79-4a313c2eb4d3',
-    badgeImage: '/lovable-uploads/f77353fc-1ab0-45fb-80e5-c0248aebf45d.png'
+    credlyLink: 'https://www.credly.com/badges/2a028b33-05e5-4e3d-bc79-4a313c2eb4d3'
   },
   {
     name: 'HashiCorp Certified: Terraform Associate (003)',
-    credlyLink: 'https://www.credly.com/badges/7874d337-7d53-4146-98eb-f05ac92b37d9',
-    badgeImage: '/lovable-uploads/04747679-b7d7-44cf-a754-a3aa78352577.png'
+    credlyLink: 'https://www.credly.com/badges/7874d337-7d53-4146-98eb-f05ac92b37d9'
   },
   {
     name: 'InfyTQ Certification - Infosys Certified Software Programmer',
-    credlyLink: null,
-    badgeImage: null
+    credlyLink: null
   },
   {
     name: 'NPTEL Certification in Programming in Java',
-    credlyLink: null,
-    badgeImage: null
+    credlyLink: null
   }
 ];
 
@@ -100,29 +95,16 @@ const EducationSection = () => {
               </svg>
               Certifications
             </h3>
-            <div className="grid grid-cols-1 gap-6">
-              {certifications.map((cert, index) => (
-                <Card key={index} className="shadow-sm overflow-hidden">
-                  <CardContent className="p-6">
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      {cert.badgeImage && (
-                        <div className="flex-shrink-0">
-                          <a 
-                            href={cert.credlyLink || '#'} 
-                            target="_blank" 
-                            rel="noopener noreferrer"
-                          >
-                            <img 
-                              src={cert.badgeImage} 
-                              alt={`${cert.name} badge`} 
-                              className="w-20 h-20 object-contain"
-                            />
-                          </a>
-                        </div>
-                      )}
-                      
-                      <div className="flex flex-col justify-center">
-                        <h4 className="font-medium text-base">{cert.name}</h4>
+            <Card className="shadow-sm">
+              <CardContent className="p-6">
+                <ul className="space-y-4">
+                  {certifications.map((cert, index) => (
+                    <li key={index} className="flex items-start">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-check text-primary mr-2 mt-1">
+                        <polyline points="20 6 9 17 4 12" />
+                      </svg>
+                      <div className="flex flex-col">
+                        <span>{cert.name}</span>
                         {cert.credlyLink && (
                           <Button variant="link" className="p-0 h-6 justify-start" asChild>
                             <a 
@@ -136,11 +118,11 @@ const EducationSection = () => {
                           </Button>
                         )}
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+                    </li>
+                  ))}
+                </ul>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>
